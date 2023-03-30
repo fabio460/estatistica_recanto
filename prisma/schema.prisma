@@ -16,7 +16,4 @@ model Temporada {
     campeao String
     artilheiro String
     assistecia String
-    gols Int
-    vitorias Int
-    empates Int 
 }
