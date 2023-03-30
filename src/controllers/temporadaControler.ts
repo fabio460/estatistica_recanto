@@ -24,6 +24,7 @@ export const estatistica = async(req:Request, res: Response)=>{
     res.json(k)
 }
 
+
 export const deletar = async(req:Request, res: Response)=>{
     const {id} = req.params
     try {
