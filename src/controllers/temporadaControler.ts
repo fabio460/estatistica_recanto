@@ -7,23 +7,22 @@ export const listar = async(req:Request, res: Response)=>{
    res.json(l)
 }
 
-export const estatistica = async(req:Request, res: Response)=>{
-    const lista = await prisma.temporada.findMany()
-    let c =await lista.map((elem:any)=>{
-       return  elem.campeao
-    })
-    let Campeoes = [...new Set(c)]
-    let campeoes:any[] = []
-    let k =await Campeoes.map(async c=>{
-        return await prisma.temporada.count({
-            where:{
-                campeao:c
-            }
-        })
-    })
-    res.json(k)
-}
 
+export const estatistica = async(req:Request, res: Response)=>{
+    let campeoes:string[] = []
+    const lista = await prisma.temporada.findMany()
+    let c = lista.map((elem:any)=>{
+       return  elem.campeoe
+    })
+    let Campeoes = [...new Set(campeoes)]
+    console.log(c)
+    const l = await prisma.temporada.count({
+        where:{
+            campeao:"rafael"
+        }
+    })
+    res.json(Campeoes)
+}
 
 export const deletar = async(req:Request, res: Response)=>{
     const {id} = req.params
